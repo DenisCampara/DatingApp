@@ -32,7 +32,7 @@ register(model: any) {
   return this.http.post(this.baseUrl + 'register', model);
 }
 
-logedIn(){
+logedIn() {
   const token = localStorage.getItem('token');
   return !this.jwtHelper.isTokenExpired(token);
 }
