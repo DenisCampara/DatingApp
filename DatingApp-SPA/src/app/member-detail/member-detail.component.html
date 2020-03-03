@@ -6,7 +6,7 @@
     
     <div class="col-sm-4">
       <div class="card">
-        <img class="card-img-top img-thumbnail" src="{{user.photoUrl}}" alt="{{user.knownAs}}"> 
+        <img class="card-img-top img-thumbnail" src="{{user.photoUrl || '../../../../assets/user.png'}} " alt="{{user.knownAs}}"> 
         <div class="card-body">
           <div>
             <strong>Location:</strong>
@@ -44,7 +44,10 @@
           </tab>
           <tab heading="Interests">
             <h4>Interests</h4>
-            <p>{{user.interests}}</p>
+            <p *ngIf="user.interests!=null; else interests" >{{user.interests}}</p>
+            <ng-template #interests>
+              <p>Interestst blah blah blah blah</p>
+            </ng-template>
           </tab>
           <tab heading="Photos">
             <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
