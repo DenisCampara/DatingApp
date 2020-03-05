@@ -37,7 +37,7 @@ import { MemberEditComponent } from './member-edit/member-edit.component';
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './photo-editor/photo-editor.component';
-
+import { TimeagoModule } from 'ngx-timeago';
 
 
 
@@ -73,11 +73,12 @@ export function tokenGetter() {
       RouterModule.forRoot(appRoutes),
       JwtModule.forRoot({
          config: {
-            tokenGetter: tokenGetter,
+            tokenGetter: (tokenGetter),
             whitelistedDomains: ['localhost:5000'],
             blacklistedRoutes: ['localhost:5000/api/auth']
          }
-      })
+      }),
+      TimeagoModule.forRoot()
    ],
    providers: [
       AuthService,

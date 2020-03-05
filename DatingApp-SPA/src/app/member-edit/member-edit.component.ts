@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../_models/user';
 import { AlertifyService } from '../_services/alertify.service';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../_services/user.service';
 import { AuthService } from '../_services/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-member-edit',
@@ -16,6 +17,7 @@ export class MemberEditComponent implements OnInit {
   @ViewChild('editForm',{static: true}) editForm: NgForm;
   user: User;
   photoUrl: string;
+  baseUrl = environment.apiUrl;
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any) {
     if (this.editForm.dirty) {
@@ -23,7 +25,7 @@ export class MemberEditComponent implements OnInit {
     }
   }
   
-  constructor(private route: ActivatedRoute, private alertify: AlertifyService, private userService: UserService, private authService: AuthService) { }
+  constructor(private route: ActivatedRoute,private router: Router, private alertify: AlertifyService, private userService: UserService, private authService: AuthService) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
