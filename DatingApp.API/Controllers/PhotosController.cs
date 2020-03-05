@@ -16,18 +16,18 @@ using System.Threading.Tasks;
 
 namespace DatingApp.API.Controllers
 {
-    
+    [ServiceFilter(typeof(LogUserActivity))]
     [Authorize]
     [Route("api/users/{userId}/photos")]
     [ApiController]
     
     public class PhotosController: ControllerBase
     {
-        private readonly IDatingRepositiry _datingRepositiry;
+        private readonly IDatingRepository _datingRepositiry;
         private readonly IMapper _mapper;
         private readonly IOptions<CloudinarySettings> _options;
         private Cloudinary _cloudinary;
-        public PhotosController(IDatingRepositiry datingRepositiry, IMapper mapper, IOptions<CloudinarySettings> options)
+        public PhotosController(IDatingRepository datingRepositiry, IMapper mapper, IOptions<CloudinarySettings> options)
         {
             _datingRepositiry = datingRepositiry;
             _mapper = mapper;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DatingApp.API.Data
 {
-    public class DatingRepository : IDatingRepositiry
+    public class DatingRepository : IDatingRepository
     {
         private readonly DataContext _dataContext;
         public DatingRepository(DataContext dataContext)

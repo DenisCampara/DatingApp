@@ -43,7 +43,7 @@ namespace DatingApp.API
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddAutoMapper(typeof(DatingRepository).Assembly);
             services.AddScoped<IAuthRepository, AuthRepository>();
-            services.AddScoped<IDatingRepositiry, DatingRepository>();
+            services.AddScoped<IDatingRepository, DatingRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).
                 AddJwtBearer(x => {
                     x.TokenValidationParameters = new TokenValidationParameters
@@ -55,7 +55,7 @@ namespace DatingApp.API
                         ValidateAudience = false
                     };
             });
-
+            services.AddScoped<LogUserActivity>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
