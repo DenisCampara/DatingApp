@@ -77,10 +77,12 @@ namespace DatingApp.API.Controllers
 
             var userPhoto = _mapper.Map<UserPhotoDto>(userFromRepo);
 
+            var userDetails = _mapper.Map<UserForListDto>(userFromRepo);
             return Ok(new
             {
                 token =tokenHandler.WriteToken(token),
-                userPhoto
+                userPhoto,
+                userDetails
             });
         }
     }
