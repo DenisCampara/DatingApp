@@ -14,6 +14,15 @@
       </li>
     </ul>
 
+    <!--<div class="form-group  mb-1  mt-2 ">
+      <form class="form-inline">
+        <span class="mr-2" *ngIf="router.url==='/members' ">
+          <input type="text" class="form-control" placeholder="Search by name..." [(ngModel)]="username" name="name" >
+          <button type="button" class="btn btn-success" style="margin-left: 10px;" (click)="loadUsers()">Search</button>
+        </span>
+      </form>
+    </div>-->
+
     <div *ngIf="logedIn()" class="dropdown" dropdown>
       <span class="mr-1">
         <img src="{{photoUrl || '../../../../assets/user.png'}}">

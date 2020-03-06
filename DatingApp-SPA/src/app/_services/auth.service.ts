@@ -31,7 +31,10 @@ login(model: any) {
       if (user) {
         localStorage.setItem('token', user.token);
         localStorage.setItem('userPhoto', JSON.stringify(user.userPhoto));
+        localStorage.setItem('userDetails', JSON.stringify(user.userDetails));
+        
         this.currentUserPhoto = user.userPhoto;
+        
         this.decodedToken = this.jwtHelper.decodeToken(user.token);
         this.changeMemberPhoto(this.currentUserPhoto.photoUrl);
       }
