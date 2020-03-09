@@ -41,6 +41,7 @@ import { PhotoEditorComponent } from './photo-editor/photo-editor.component';
 import { TimeagoModule } from 'ngx-timeago';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { EventemiterService } from './_services/eventemiter.service';
+import { ListsResolver } from './_resolvers/lists.resolver';
 
 
 
@@ -95,7 +96,8 @@ export function tokenGetter() {
       MemberDetailResolver,
       MemberListResolver,
       MemberEditResolver,
-      EventemiterService
+      EventemiterService,
+      ListsResolver
    ],
    bootstrap: [
       AppComponent

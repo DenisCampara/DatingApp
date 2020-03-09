@@ -21,7 +21,7 @@ export class MemberListComponent implements OnInit {
   name: string;
   pagination: Pagination;
   radioModel;
-  constructor(private userService: UserService, private alertyfy: AlertifyService, private route: ActivatedRoute,
+  constructor(private userService: UserService, private alertify: AlertifyService, private route: ActivatedRoute,
               private eventEmitterService: EventemiterService) { }
 
   ngOnInit() {
@@ -58,15 +58,12 @@ export class MemberListComponent implements OnInit {
   }
 
   loadUsers(username?: string) {
-    if (username != null) {
-        this.name = username;
-    }
-    this.userService.getUsers(this.pagination.currentPage, this.pagination.itemsPerPage, this.userParams, this.name)
+    this.userService.getUsers(this.pagination.currentPage, this.pagination.itemsPerPage, this.userParams)
       .subscribe((res: PaginatedResult<User[]>) => {
         this.users = res.result;
         this.pagination = res.pagination;
     }, error => {
-      this.alertyfy.error(error);
+      this.alertify.error(error);
     });
   }
   
