@@ -1,2 +1,7 @@
 <app-nav></app-nav>
+<div *ngIf="loading" class="container">
+    <div class="row mt-5">
+        <progressbar max="200" [value]="200" type="danger" [striped]="true" [animate]="true"><i>Loading data... Please wait</i></progressbar>
+    </div>
+</div>     
 <router-outlet></router-outlet>

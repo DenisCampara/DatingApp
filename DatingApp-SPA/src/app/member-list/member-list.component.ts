@@ -25,7 +25,6 @@ export class MemberListComponent implements OnInit {
               private eventEmitterService: EventemiterService) { }
 
   ngOnInit() {
-    
     this.route.data.subscribe(data => {
       this.users = data['users'].result;
       this.pagination = data['users'].pagination;
