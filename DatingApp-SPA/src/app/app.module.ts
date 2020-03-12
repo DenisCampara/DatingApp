@@ -42,8 +42,9 @@ import { TimeagoModule } from 'ngx-timeago';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { EventemiterService } from './_services/eventemiter.service';
 import { ListsResolver } from './_resolvers/lists.resolver';
-
-
+import { MessagesResolver } from './_resolvers/messages.resolver';
+import { MemberMessagesComponent } from './member-messages/member-messages.component';
+import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -61,7 +62,8 @@ export function tokenGetter() {
       MemberCardComponent,
       MemberDetailComponent,
       MemberEditComponent,
-      PhotoEditorComponent
+      PhotoEditorComponent,
+      MemberMessagesComponent
    ],
    imports: [
       BrowserModule,
@@ -84,7 +86,8 @@ export function tokenGetter() {
       }),
       TimeagoModule.forRoot(),
       PaginationModule.forRoot(),
-      ButtonsModule.forRoot()
+      ButtonsModule.forRoot(),
+      ProgressbarModule.forRoot(),
    ],
    providers: [
       AuthService,
@@ -97,7 +100,8 @@ export function tokenGetter() {
       MemberListResolver,
       MemberEditResolver,
       EventemiterService,
-      ListsResolver
+      ListsResolver,
+      MessagesResolver
    ],
    bootstrap: [
       AppComponent
